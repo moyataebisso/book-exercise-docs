@@ -6,44 +6,23 @@ Be sure to implement all the PIOT-GDA-* issues (requirements) listed at [PIOT-IN
 
 ### Description
 
-NOTE: Include two full paragraphs describing your implementation approach by answering the questions listed below.
+The Gateway Device Application (GDA) provides the Java-based gateway infrastructure that will serve as the bridge between constrained devices and cloud services. This initial module establishes the core application framework, dependency management through Maven, and fundamental lifecycle operations. The implementation successfully demonstrates initialization, configuration loading, and proper application lifecycle management with appropriate logging and error handling.
 
-What does your implementation do? 
-
-How does your implementation work?
+The implementation leverages Java and Maven to create a robust gateway application where GatewayDeviceApp serves as the main class orchestrating all operations. The build process uses Maven to manage dependencies and create an executable JAR file with all dependencies included. Configuration is managed through the PiotConfig.props file, similar to the CDA, ensuring consistency across both applications. The application demonstrates successful compilation (after addressing Java version compatibility by excluding InfluxDB components), proper initialization sequences, and clean shutdown procedures with exit code 0.
 
 ### Code Repository and Branch
 
-NOTE: Be sure to include the branch (e.g. https://github.com/programming-the-iot/python-components/tree/alpha001).
-
-URL: 
+URL: https://github.com/moyataebisso/gda-java-components/tree/labmodule01
 
 ### UML Design Diagram(s)
-
-NOTE: Include one or more UML designs representing your solution. It's expected each
-diagram you provide will look similar to, but not the same as, its counterpart in the
-book [Programming the IoT](https://learning.oreilly.com/library/view/programming-the-internet/9781492081401/).
 
 
 ### Unit Tests Executed
 
-NOTE: TA's will execute your unit tests. You only need to list each test case below
-(e.g. ConfigUtilTest, DataUtilTest, etc). Be sure to include all previous tests, too,
-since you need to ensure you haven't introduced regressions.
-
-- 
-- 
-- 
+- ConfigUtilTest
 
 ### Integration Tests Executed
 
-NOTE: TA's will execute most of your integration tests using their own environment, with
-some exceptions (such as your cloud connectivity tests). In such cases, they'll review
-your code to ensure it's correct. As for the tests you execute, you only need to list each
-test case below (e.g. SensorSimAdapterManagerTest, DeviceDataManagerTest, etc.)
-
-- 
-- 
-- 
+- GatewayDeviceAppTest
 
 EOF.

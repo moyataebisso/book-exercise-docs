@@ -6,44 +6,28 @@ Be sure to implement all the PIOT-CDA-* issues (requirements) listed at [PIOT-IN
 
 ### Description
 
-NOTE: Include two full paragraphs describing your implementation approach by answering the questions listed below.
+The Lab Module 02 implementation adds system performance monitoring capabilities to the Constrained Device Application. The solution implements a SystemPerformanceManager that coordinates the collection of CPU and memory utilization metrics at regular 30-second intervals. This is achieved through a modular architecture where BaseSystemUtilTask serves as an abstract base class, with SystemCpuUtilTask and SystemMemUtilTask as concrete implementations that use the psutil library to gather system metrics. The performance manager uses APScheduler to handle the periodic data collection, ensuring metrics are gathered consistently without blocking the main application thread.
 
-What does your implementation do? 
-
-How does your implementation work?
+The implementation integrates seamlessly with the existing ConstrainedDeviceApp structure from Lab Module 01. When the CDA starts, it initializes and starts the SystemPerformanceManager, which begins scheduling telemetry collection jobs. The manager logs CPU and memory utilization percentages to provide visibility into system resource usage. This foundational telemetry system establishes the pattern for future sensor data collection that will be added in subsequent lab modules, demonstrating how the CDA can monitor both system health and environmental conditions.
 
 ### Code Repository and Branch
 
-NOTE: Be sure to include the branch (e.g. https://github.com/programming-the-iot/python-components/tree/alpha001).
-
-URL: 
+URL: https://github.com/moyataebisso/cda-python-components/tree/labmodule02
 
 ### UML Design Diagram(s)
 
-NOTE: Include one or more UML designs representing your solution. It's expected each
-diagram you provide will look similar to, but not the same as, its counterpart in the
-book [Programming the IoT](https://learning.oreilly.com/library/view/programming-the-internet/9781492081401/).
-
+[To be provided per course requirements]
 
 ### Unit Tests Executed
 
-NOTE: TA's will execute your unit tests. You only need to list each test case below
-(e.g. ConfigUtilTest, DataUtilTest, etc). Be sure to include all previous tests, too,
-since you need to ensure you haven't introduced regressions.
-
-- 
-- 
-- 
+- test_SystemCpuUtilTask
+- test_SystemMemUtilTask
+- test_ConfigUtilDefault
+- test_ConfigUtilCustom
 
 ### Integration Tests Executed
 
-NOTE: TA's will execute most of your integration tests using their own environment, with
-some exceptions (such as your cloud connectivity tests). In such cases, they'll review
-your code to ensure it's correct. As for the tests you execute, you only need to list each
-test case below (e.g. SensorSimAdapterManagerTest, DeviceDataManagerTest, etc.)
-
-- 
-- 
-- 
+- test_ConstrainedDeviceApp
+- Manual verification of SystemPerformanceManager logging CPU/Memory metrics every 30 seconds
 
 EOF.
