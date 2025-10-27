@@ -47,3 +47,40 @@ test case below (e.g. SensorSimAdapterManagerTest, DeviceDataManagerTest, etc.)
 - 
 
 EOF.
+
+## Wireshark/Tshark Packet Analysis Details
+
+### Captured MQTT Packets from Test Run:
+
+1. **CONNECT Request**
+   - Message Type: Connect Command (1)
+   - Client ID: constraineddevice001
+   - Keep Alive: 60 seconds
+
+2. **CONNACK Response**
+   - Message Type: Connect Ack (2)
+   - Return Code: Connection Accepted (0)
+
+3. **SUBSCRIBE Request**
+   - Message Type: Subscribe Request (8)
+   - Topic: PIOT/ConstrainedDevice/MgmtStatusMsg
+   - QoS: 0
+
+4. **SUBACK Response**
+   - Message Type: Subscribe Ack (9)
+   - Granted QoS: 0
+
+5. **PUBLISH Messages**
+   - QoS 0: "QoS 0" - Single packet, no acknowledgment
+   - QoS 1: "QoS 1" - PUBLISH + PUBACK
+   - QoS 2: "QoS 2" - Full 4-way handshake
+
+6. **UNSUBSCRIBE Request**
+   - Message Type: Unsubscribe Request (10)
+   - Topic: PIOT/ConstrainedDevice/MgmtStatusMsg
+
+7. **UNSUBACK Response**
+   - Message Type: Unsubscribe Ack (11)
+
+Total packets captured: 28
+Protocol verified: MQTT v3.1.1
